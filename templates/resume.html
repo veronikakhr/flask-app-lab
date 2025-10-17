@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="about" class="my-4">
+    <h2>Про себе</h2>
+    <p>Короткий опис про себе...</p>
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Фото" class="img-thumbnail" width="200">
+</section>
+
+<section id="education" class="my-4">
+    <h2>Освіта</h2>
+    <ul>
+        <li>Назва університету, спеціальність, роки навчання</li>
+    </ul>
+</section>
+
+<section id="skills" class="my-4">
+    <h2>Навички</h2>
+    <ul>
+        <li>Навичка 1</li>
+        <li>Навичка 2</li>
+    </ul>
+</section>
+
+<section id="technologies" class="my-4">
+    <h2>Технології</h2>
+    <ul>
+        <li>Python, Flask, HTML, CSS, Bootstrap</li>
+    </ul>
+</section>
+
+<section id="experience" class="my-4">
+    <h2>Досвід роботи / Проекти</h2>
+    <ul>
+        <li>Проект 1</li>
+        <li>Проект 2</li>
+    </ul>
+</section>
+{% endblock %}
