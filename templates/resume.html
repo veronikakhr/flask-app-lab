@@ -3,37 +3,53 @@
 {% block content %}
 <section id="about" class="my-4">
     <h2>Про себе</h2>
-    <p>Короткий опис про себе...</p>
-    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Фото" class="img-thumbnail" width="200">
+    <p>Мене звати Вероніка Храбатин. Я студентка спеціальності «Інженерія програмного забезпечення». 
+    Маю сильний інтерес до веб-розробки та створення сучасних веб-додатків на Python та Flask. 
+    Вмію працювати в команді, швидко вчусь новим технологіям та люблю вирішувати нестандартні завдання.</p>
+    <img src="{{ url_for('static', filename='images/photo.jpg') }}" alt="Фото" class="img-thumbnail" width="200">
 </section>
 
 <section id="education" class="my-4">
     <h2>Освіта</h2>
     <ul>
-        <li>Назва університету, спеціальність, роки навчання</li>
+        <li>Фаховий коледж прикарпатського національного університету імені Василя Стефаника, 2020–2024</li>
+        <li>Карпатський національний університет імені Василя Стефаника, 2024–2027</li>
     </ul>
 </section>
 
 <section id="skills" class="my-4">
     <h2>Навички</h2>
     <ul>
-        <li>Навичка 1</li>
-        <li>Навичка 2</li>
+        <li>Веб-розробка: HTML, CSS, Bootstrap</li>
+        <li>Програмування: Python, Flask, JavaScript</li>
+        <li>Контроль версій: Git, GitHub</li>
+        <li>Робота з базами даних: SQL, SQLite</li>
+        <li>Командна робота та тайм-менеджмент</li>
     </ul>
 </section>
 
 <section id="technologies" class="my-4">
     <h2>Технології</h2>
     <ul>
-        <li>Python, Flask, HTML, CSS, Bootstrap</li>
+        <li>Python, Flask, Jinja2</li>
+        <li>HTML5, CSS3, JavaScript</li>
+        <li>SQLite, MySQL</li>
+        <li>Git, GitHub</li>
     </ul>
 </section>
 
 <section id="experience" class="my-4">
     <h2>Досвід роботи / Проекти</h2>
     <ul>
-        <li>Проект 1</li>
-        <li>Проект 2</li>
+        <li>
+            <strong>Веб-сайт салону краси (Laravel, PHP, MySQL)</strong> 
+        </li>
+        <li>
+            <strong>Веб-сайт приватної лікарні (Laravel, PHP, MySQL)</strong>
+        </li>
+        <li>
+            <strong>Чотириколісний робот на Arduino</strong> 
+        </li>
     </ul>
 </section>
 {% endblock %}
