@@ -95,3 +95,25 @@ footer {
     color: #ffffff;
     font-weight: 500;
 }
+
+.light {
+    background-color: #ffffff;
+    color: #212529;
+}
+.light .table {
+    color: #212529;
+}
+
+.dark {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+.dark h2, .dark h4 {
+    color: #ffffff;
+}
+.dark .table {
+    color: #f8f9fa; 
+}
+.dark label {
+    color: #f8f9fa; 
+}
