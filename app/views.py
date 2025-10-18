@@ -1,6 +1,5 @@
-# /app/views.py
-from app import app  # Імпортуємо екземпляр 'app' з app/__init__.py [cite: 40]
-from flask import render_template # Імпортуємо render_template [cite: 41]
+from app import app  
+from flask import render_template 
 
 @app.route('/')
 def home():
@@ -9,6 +8,3 @@ def home():
 @app.route('/contacts')
 def contacts():
     return render_template('contacts.html', title="Контакти")
-
-# У вас в app.py був 'from flask import url_for', 
-# але ви його не використовували. Якщо він потрібен, додайте його до імпортів.

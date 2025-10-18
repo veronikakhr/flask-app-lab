@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+
+{% block title %}Список Товарів{% endblock %} 
+
+{% block content %} 
+<h2>Наші Товари</h2>
+<ul>
+    {% for item in items %}
+    <li>{{ item.name }}</li>
+    {% else %}
+    <li>Товарів не знайдено.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
