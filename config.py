@@ -1,1 +1,4 @@
-SECRET_KEY = 'password'
+import os
+
+class Config:    
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'password'

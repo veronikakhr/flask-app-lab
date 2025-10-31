@@ -1,5 +1,7 @@
 # Віртуальне середовище
 venv/
+.venv/
 
-# Папки з кешем Python
+# Папки Python
 __pycache__/
+*.pyc

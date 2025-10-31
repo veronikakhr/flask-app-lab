@@ -1,5 +1,6 @@
 from flask import request, redirect, url_for, render_template, flash, session, make_response
-from . import users_bp 
+from . import users_bp
+from app.forms import LoginForm  
 
 @users_bp.route("/hi/<string:name>")
 def greetings(name):
@@ -17,27 +18,31 @@ def login():
     if 'user' in session:
         return redirect(url_for('users.profile'))
 
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+    form = LoginForm() 
+   
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+        remember = form.remember.data  
 
         if username == 'admin' and password == '12345':
             session['user'] = username
-            flash('Ви успішно увійшли!', 'success') 
+            
+            remember_message = " (з опцією 'Запам'ятати мене')" if remember else ""
+            flash(f'Ви успішно увійшли як {username}{remember_message}!', 'success') 
+            
             return redirect(url_for('users.profile'))
         else:
-            flash('Wrong data! Try again!', 'danger') 
+            flash('Неправильне ім\'я користувача або пароль! Спробуйте ще раз.', 'danger') 
             return redirect(url_for('users.login'))
 
-    return render_template('users/login.html')
+    return render_template('users/login.html', form=form)
 
 @users_bp.route('/profile')
 def profile():
     if 'user' in session:
         username = session['user']
-
         cookies = request.cookies
-
         return render_template('users/profile.html', user=username, cookies=cookies)
     else:
         flash('Будь ласка, увійдіть, щоб побачити цю сторінку.', 'warning')
