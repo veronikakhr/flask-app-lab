@@ -3,7 +3,6 @@ from wtforms import StringField, TextAreaField, SelectField, PasswordField, Bool
 from wtforms.validators import DataRequired, Email, Length, Regexp, Optional
 
 class ContactForm(FlaskForm):
-    """Форма для сторінки контактів (Завдання 1)"""
     name = StringField('Ім\'я', 
                        validators=[DataRequired(message="Це поле обов'язкове."), 
                                    Length(min=4, max=10, message="Ім'я повинно бути від 4 до 10 символів.")])
@@ -34,7 +33,6 @@ class ContactForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    """Форма для логіну (Завдання 2)"""
     username = StringField('Ім\'я користувача', 
                            validators=[DataRequired(message="Це поле обов'язкове.")])
     

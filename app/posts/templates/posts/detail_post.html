@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>{{ post.title }}</h2>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <span class="badge bg-secondary">{{ post.category.value }}</span>
+                {% if post.is_active %}
+                <span class="badge bg-success">Активний</span>
+                {% else %}
+                <span class="badge bg-danger">Неактивний</span>
+                {% endif %}
+            </div>
+            
+            <p class="text-muted">
+                <i class="bi bi-person"></i> <strong>Автор:</strong> {{ post.author }}<br>
+                <i class="bi bi-calendar"></i> <strong>Опубліковано:</strong> {{ post.posted.strftime('%d.%m.%Y о %H:%M') }}
+            </p>
+            
+            <hr>
+            
+            <div class="post-content">
+                {{ post.content }}
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{ url_for('posts.update_post', id=post.id) }}" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Редагувати
+            </a>
+            <a href="{{ url_for('posts.delete_post', id=post.id) }}" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Видалити
+            </a>
+            <a href="{{ url_for('posts.list_posts') }}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Назад до списку
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

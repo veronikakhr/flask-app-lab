@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% from "_render_field.html" import render_field %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>{% if post %}Редагувати пост{% else %}Створити новий пост{% endif %}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" novalidate>
+                        {{ form.hidden_tag() }}
+                        
+                        {{ render_field(form.title) }}
+                        
+                        {{ render_field(form.content, {'rows': '10'}) }}
+                        
+                        {{ render_field(form.category) }}
+                        
+                        {{ render_field(form.publish_date) }}
+                        
+                        <div class="mb-3 form-check">
+                            {{ form.enabled(class="form-check-input") }}
+                            {{ form.enabled.label(class="form-check-label") }}
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            {{ form.submit(class="btn btn-primary btn-lg") }}
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('posts.list_posts') }}" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Скасувати
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
